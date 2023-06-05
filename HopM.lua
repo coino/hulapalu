@@ -67,7 +67,7 @@ HopM.__type = "HopM"
 do
     -- // Default data
     HopM.DefaultData = {
-        HopMode = "Random", -- // if a number, that index will be selected. options: (number), Random, Middle
+        HopMode = getgenv().Settings.HopMode, -- // if a number, that index will be selected. options: (number), Random, Middle
         KickBeforeTeleport = true,
         KickMessage = "Teleporting...",
         MinimumPlayers = 1,
@@ -76,12 +76,12 @@ do
         RetryDelay = 1,
         DataRetryDelay = 1,
         SaveLocation = "recenthops.json",
-        ServerFormat = "https://games.roblox.com/v1/games/%d/servers/Public?sortOrder=Asc&limit=100&excludeFullGames=true&cursor=%s",
+        ServerFormat = "https://games.roblox.com/v1/games/%d/servers/Public?sortOrder=getgenv().Settings.Servers&limit=100&excludeFullGames=true&cursor=%s",
         RecentHops = {},
         MassServerList = {
             Enabled = false,
-            RemoveAfterTeleport = false,
-            Refresh = 300,
+            RemoveAfterTeleport = getgenv().Settings.RemoveAfterTP,
+            Refresh = getgenv().Settings.Refresh,
             Amount = 500,
             MinimumServers = 100,
             SaveLocation = "massserver.json",
